@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Передержка собак в Монино и районе | Домашние условия от 700₽/сутки</title>
+    <meta name="description" content="Профессиональная передержка собак в восточном Подмосковье. Домашний уход, ежедневные отчеты, безопасный выгул.">
+    <style>
+        /* Основные стили */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #ff6b00;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            margin: 10px 0;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #e05d00;
+        }
+        
+        /* Шапка */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        .logo {
+            font-weight: bold;
+            font-size: 24px;
+            color: #ff6b00;
+        }
+        .phone {
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        /* Герой-баннер */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('dog-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 150px 0 100px;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        /* Блок преимуществ */
+        .benefits {
+            padding: 60px 0;
+            background: #f9f9f9;
+        }
+        .benefit-item {
+            text-align: center;
+            padding: 20px;
+        }
+        .benefit-icon {
+            font-size: 40px;
+            color: #ff6b00;
+            margin-bottom: 15px;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .header-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">DogCare</div>
+            <div class="phone">+7 (999) 123-45-67</div>
+        </div>
+    </header>
+
+    <!-- Герой-баннер -->
+    <section class="hero">
+        <div class="container">
+            <h1>Передержка собак с заботой в вашем районе</h1>
+            <p>Домашние условия, ежедневные отчеты, индивидуальный подход</p>
+            <p>От <strong>700₽/сутки</strong></p>
+            <a href="#form" class="btn">Оставить заявку</a>
+        </div>
+    </section>
+
+    <!-- Преимущества -->
+    <section class="benefits">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px;">Почему хозяева выбирают нас</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                <div class="benefit-item">
+                    <div class="benefit-icon">🏠</div>
+                    <h3>Домашние условия</h3>
+                    <p>Никаких клеток и вольеров - только уютная квартира</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">📸</div>
+                    <h3>Ежедневные отчеты</h3>
+                    <p>Фото и видео вашего питомца каждый день</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🐕</div>
+                    <h3>Опыт с разными породами</h3>
+                    <p>От той-терьеров до средних собак</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🌳</div>
+                    <h3>Безопасный выгул</h3>
+                    <p>Несколько оборудованных площадок для прогулок</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Форма заявки -->
+    <section id="form" style="padding: 60px 0; background: #ffefe5;">
+        <div class="container" style="max-width: 600px; margin: 0 auto;">
+            <h2 style="text-align: center;">Оставить заявку</h2>
+            <form style="display: grid; gap: 15px;">
+                <input type="text" placeholder="Ваше имя" style="padding: 12px; border: 1px solid #ddd; border-radius: 5px;">
+                <input type="tel" placeholder="Телефон" style="padding: 12px; border: 1px solid #ddd; border-radius: 5px;">
+                <textarea placeholder="О вашем питомце (порода, возраст, особенности)" style="padding: 12px; border: 1px solid #ddd; border-radius: 5px; height: 100px;"></textarea>
+                <button type="submit" class="btn">Отправить заявку</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer style="background: #333; color: white; padding: 30px 0; text-align: center;">
+        <div class="container">
+            <p>© 2023 DogCare - передержка собак в Монино и районе</p>
+            <p>+7 (999) 123-45-67 | example@mail.ru</p>
+        </div>
+    </footer>
+</body>
+</html>
