@@ -358,5 +358,34 @@
         // Инициализация при загрузке
         updateDots();
     </script>
+// Функция для создания точек навигации
+   function createNavigationDots() {
+       const carousel = document.getElementById('petsCarousel');
+       const dotsContainer = document.getElementById('carouselDots');
+       const cards = document.querySelectorAll('.pet-card');
+       
+       // Очищаем старые точки (если есть)
+       dotsContainer.innerHTML = '';
+       
+       // Создаем новые точки
+       cards.forEach((_, index) => {
+           const dot = document.createElement('span');
+           dot.className = 'carousel-dot' + (index === 0 ? ' active' : '');
+           dot.setAttribute('data-index', index);
+           dot.addEventListener('click', () => {
+               scrollToCard(index);  // Используем существующую функцию прокрутки
+           });
+           dotsContainer.appendChild(dot);
+       });
+   }
+   
+   // Запускаем при загрузке страницы
+   document.addEventListener('DOMContentLoaded', createNavigationDots);
+   
+   // Автоматическое обновление точек, если карусель меняется
+   new MutationObserver(createNavigationDots).observe(
+       document.getElementById('petsCarousel'), 
+       { childList: true }
+   );
 </body>
 </html>
