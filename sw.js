@@ -11,8 +11,11 @@ const ASSETS = [
   '/script.js'
 ];
 
-// Установка Service Worker
+// ===== Установка Service Worker =====
 self.addEventListener('install', event => {
+  // NEW: Активируем skipWaiting сразу после установки
+  self.skipWaiting(); // Принудительная активация нового SW
+  
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => {
@@ -22,18 +25,30 @@ self.addEventListener('install', event => {
   );
 });
 
-// Активация и очистка старых кэшей
+// ===== Активация =====
 self.addEventListener('activate', event => {
+  // NEW: Очистка старых кэшей + принудительный захват контроля
   event.waitUntil(
     caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames.filter(name => name !== CACHE_NAME)
-          .map(name => caches.delete(name))
+      return Promise.all([
+        // Очистка старых кэшей
+        ...cacheNames.filter(name => name !== CACHE_NAME)
+          .map(name => caches.delete(name)),
+        // NEW: Немедленный захват контроля над страницами
+        self.clients.claim()
+      ]);
     })
   );
 });
 
-// Стратегия "Cache First, затем Network"
+// ===== NEW: Автообновление при изменении контента =====
+self.addEventListener('message', event => {
+  if (event.data.action === 'skipWaiting') {
+    self.skipWaiting();
+  }
+});
+
+// ===== Обработка запросов =====
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request)
