@@ -305,16 +305,29 @@
     <section id="form" style="padding: 60px 0; background: #ffefe5;">
         <div class="container" style="max-width: 600px; margin: 0 auto;">
             <h2 style="text-align: center;">Оставить заявку</h2>
-<form style="display: grid; gap: 15px;" 
-              action="mailto:errna@rambler.ru" 
-              method="post" 
-              enctype="text/plain">
-            <input type="text" name="name" placeholder="Ваше имя" required style="padding: 12px; border: 1px solid #ddd; border-radius: 5px;">
-            <input type="tel" name="phone" placeholder="Телефон" required style="padding: 12px; border: 1px solid #ddd; border-radius: 5px;">
-            <textarea name="message" placeholder="О вашем питомце (порода, возраст, особенности)" required style="padding: 12px; border: 1px solid #ddd; border-radius: 5px; height: 100px;"></textarea>
-            <button type="submit" class="btn">Отправить заявку</button>
-        </form>
-        </div>
+<form id="dogForm" style="display: grid; gap: 15px;">
+    <input type="text" name="name" placeholder="Ваше имя" required style="padding: 12px; border: 1px solid #ddd; border-radius: 5px;">
+    <input type="tel" name="phone" placeholder="Телефон" required style="padding: 12px; border: 1px solid #ddd; border-radius: 5px;">
+    <textarea name="message" placeholder="О вашем питомце (порода, возраст, особенности)" required style="padding: 12px; border: 1px solid #ddd; border-radius: 5px; height: 100px;"></textarea>
+    <button type="submit" class="btn">Отправить заявку</button>
+</form>
+
+<script>
+document.getElementById('dogForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const name = encodeURIComponent(document.querySelector('input[name="name"]').value);
+    const phone = encodeURIComponent(document.querySelector('input[name="phone"]').value);
+    const message = encodeURIComponent(document.querySelector('textarea[name="message"]').value);
+    
+    const subject = encodeURIComponent('Заявка на передержку собаки');
+    const body = encodeURIComponent(`Имя: ${decodeURIComponent(name)}\nТелефон: ${decodeURIComponent(phone)}\nСообщение: ${decodeURIComponent(message)}`);
+    
+    window.location.href = `mailto:errna@rambler.ru?subject=${subject}&body=${body}`;
+});
+</script>
+
+</div>
     </section>
 
     <!-- Футер -->
