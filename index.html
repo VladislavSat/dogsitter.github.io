@@ -3,24 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="geo.region" content="RU-MOS">
-   <meta name="geo.placename" content="Восточное Подмосковье">
-<title>Передержка собак недорого в Лосино-Петровском, Монино, Свердловском  🐕 – 700₽/сутки с фотоотчетом</title>
-
-    <!-- Основные метатеги -->
+    <meta name="geo.region" content="RU-MOS">
+    <meta name="geo.placename" content="Восточное Подмосковье">
+    <title>Передержка собак недорого в Лосино-Петровском, Монино, Свердловском 🐕 – 700₽/сутки с фотоотчетом</title>
+    
+    <!-- Метатеги -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="description" content="Профессиональная передержка собак в Лосино-Петровском, Монино, Свердловском. Домашний уход, ежедневные отчеты, безопасный выгул от 700₽/сутки">
-
-    <!-- Для соцсетей (Open Graph) -->
     <meta property="og:title" content="Передержка собак в Лосино-Петровском, Монино, Свердловском">
     <meta property="og:description" content="Домашние условия, ежедневные фотоотчеты, безопасный выгул">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://dogsitterlp.online">
     <meta property="og:image" content="https://dogsitterlp.online/images/dog-bg.jpg">
-
-    <!-- Для мобильных устройств -->
     <meta name="theme-color" content="#ff6b00">
-    <meta name="description" content="Профессиональная передержка собак в Лосино-Петровском, Монино, Свердловском. Домашний уход, ежедневные отчеты, безопасный выгул.">
+
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -30,14 +26,18 @@
     <link rel="shortcut icon" href="favicon.ico">
     <meta name="msapplication-TileColor" content="#ff6b00">
     <meta name="msapplication-config" content="browserconfig.xml">
-    <meta name="theme-color" content="#ff6b00">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <style>
-        /* Ваши текущие стили остаются без изменений */
+        /* Основные стили */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             line-height: 1.6;
             color: #333;
+            padding-top: 60px; /* Для фиксированной шапки */
         }
         .container {
             max-width: 1200px;
@@ -45,7 +45,9 @@
             padding: 0 15px;
         }
         .btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             padding: 12px 25px;
             background: #ff6b00;
             color: white;
@@ -53,17 +55,23 @@
             border-radius: 30px;
             font-weight: bold;
             margin: 10px 0;
-            transition: 0.3s;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
         }
         .btn:hover {
             background: #e05d00;
+            transform: translateY(-2px);
         }
+        
+        /* Шапка */
         header {
             background: white;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: fixed;
+            top: 0;
             width: 100%;
-            z-index: 100;
+            z-index: 1000;
         }
         .header-container {
             display: flex;
@@ -71,34 +79,121 @@
             align-items: center;
             padding: 15px 0;
         }
+        .header-contacts {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
         .logo {
             font-weight: bold;
             font-size: 24px;
             color: #ff6b00;
         }
-        .phone {
+        .phone-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
             font-weight: bold;
             font-size: 18px;
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s;
         }
+        .phone-link:hover {
+            color: #ff6b00;
+        }
+        .whatsapp-link {
+            color: #25D366;
+            font-size: 24px;
+            transition: transform 0.3s;
+        }
+        .whatsapp-link:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Модальное окно */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(3px);
+        }
+        .modal-content {
+            background: white;
+            margin: 10% auto;
+            padding: 25px;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+            position: relative;
+            animation: modalFadeIn 0.3s;
+        }
+        @keyframes modalFadeIn {
+            from {opacity: 0; transform: translateY(-20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #666;
+            transition: color 0.3s;
+        }
+        .close-modal:hover {
+            color: #ff6b00;
+        }
+        
+        /* Секции */
         .hero {
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('dog-bg.jpg');
             background-size: cover;
             background-position: center;
             color: white;
             text-align: center;
-            padding: 150px 0 100px;
+            padding: 100px 0;
+            margin-top: -60px; /* Компенсация фиксированной шапки */
         }
         .hero h1 {
             font-size: 2.5rem;
             margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
         }
         .benefits {
             padding: 60px 0;
             background: #f9f9f9;
         }
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
         .benefit-item {
             text-align: center;
-            padding: 20px;
+            padding: 25px 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .benefit-item:hover {
+            transform: translateY(-5px);
         }
         .benefit-icon {
             font-size: 40px;
@@ -108,7 +203,6 @@
         .pets-section {
             padding: 60px 0;
             background: #f5f5f5;
-            position: relative;
         }
         .pets-carousel {
             display: flex;
@@ -118,7 +212,7 @@
             -webkit-overflow-scrolling: touch;
             gap: 20px;
             padding: 20px 0;
-            margin: 0 -15px;
+            margin: 30px -15px;
         }
         .pets-carousel::-webkit-scrollbar {
             display: none;
@@ -153,14 +247,12 @@
             font-size: 14px;
         }
         .carousel-nav {
-            text-align: center;
-            margin-top: 20px;
             display: flex;
             justify-content: center;
             gap: 10px;
+            margin-top: 20px;
         }
         .carousel-dot {
-            display: inline-block;
             width: 12px;
             height: 12px;
             background: #ccc;
@@ -171,19 +263,83 @@
         .carousel-dot.active {
             background: #ff6b00;
         }
+        
+        /* Форма */
+        .form-section {
+            padding: 60px 0;
+            background: #ffefe5;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-grid {
+            display: grid;
+            gap: 15px;
+        }
+        .form-grid input,
+        .form-grid textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+        .form-grid textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        
+        /* Футер */
+        footer {
+            background: #333;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        .footer-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .footer-phone {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        
+        /* Адаптивность */
         @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .header-contacts {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
             .hero h1 {
                 font-size: 2rem;
             }
-            .header-container {
+            .hero-buttons {
                 flex-direction: column;
+                align-items: center;
             }
             .pet-card {
-                flex: 0 0 240px;
+                flex: 0 0 85%;
             }
         }
-
-        /* Стили для кнопки обновления PWA */
+        
+        /* Кнопка обновления PWA */
         #update-btn {
             display: none;
             position: fixed;
@@ -196,7 +352,7 @@
             border-radius: 30px;
             font-weight: bold;
             cursor: pointer;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.2);
             z-index: 1000;
             transition: all 0.3s;
         }
@@ -211,33 +367,62 @@
 </head>
 <body>
     <!-- Шапка -->
-<header>
-    <div class="container header-container">
-        <div class="logo">Зооняня</div>
-        <div>
-            <a href="tel:+79096777055" class="phone">+7 (909) 677-70-55</a>
-            <a href="https://wa.me/79096777055" class="whatsapp-link" style="margin-left: 15px;">
-                <img src="images/whatsapp-icon.svg" alt="WhatsApp" width="20" style="vertical-align: middle;">
-            </a>
+    <header>
+        <div class="container header-container">
+            <div class="logo">Зооняня</div>
+            <div class="header-contacts">
+                <a href="tel:+79096777055" class="phone-link" id="phoneHeader">
+                    <i class="fas fa-phone-alt"></i> +7 (909) 677-70-55
+                </a>
+                <a href="https://wa.me/79096777055" class="whatsapp-link" target="_blank" rel="noopener" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <button class="btn" onclick="openCallbackModal()">
+                    <i class="fas fa-phone-volume"></i> Заказать звонок
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Модальное окно -->
+    <div id="callbackModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h3>Заказать звонок</h3>
+            <form id="callbackForm">
+                <div class="form-grid">
+                    <input type="text" placeholder="Ваше имя" required>
+                    <input type="tel" placeholder="Телефон" required>
+                    <button type="submit" class="btn">
+                        <i class="fas fa-phone"></i> Позвоните мне
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
-</header>
 
-    <!-- Герой-баннер -->
+    <!-- Герой-секция -->
     <section class="hero">
         <div class="container">
             <h1>Передержка собак с выгулом и фотоотчётами — Лосино-Петровский, Монино, Свердловский</h1>
             <p>Домашние условия, ежедневные отчеты, индивидуальный подход</p>
             <p>От <strong>700₽/сутки</strong></p>
-            <a href="#form" class="btn">Оставить заявку</a>
+            <div class="hero-buttons">
+                <a href="#form" class="btn">
+                    <i class="fas fa-paw"></i> Оставить заявку
+                </a>
+                <button class="btn" onclick="openCallbackModal()">
+                    <i class="fas fa-phone-volume"></i> Заказать звонок
+                </button>
+            </div>
         </div>
     </section>
 
     <!-- Преимущества -->
     <section class="benefits">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 40px;">Почему хозяева выбирают нас</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+            <h2 style="text-align: center;">Почему хозяева выбирают нас</h2>
+            <div class="benefits-grid">
                 <div class="benefit-item">
                     <div class="benefit-icon">🏠</div>
                     <h3>Домашние условия</h3>
@@ -253,12 +438,11 @@
                     <h3>Опыт содержания разных пород</h3>
                     <p>От той-терьера до американского бульдога</p>
                 </div>
-                
-<div class="benefit-item">
-    <span class="benefit-icon" aria-hidden="true">🌳</span>
-    <h3>Безопасный выгул</h3>
-    <p>Несколько оборудованных мест для прогулок</p>
-</div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🌳</div>
+                    <h3>Безопасный выгул</h3>
+                    <p>Несколько оборудованных мест для прогулок</p>
+                </div>
             </div>
         </div>
     </section>
@@ -266,8 +450,9 @@
     <!-- Карусель с питомцами -->
     <section class="pets-section">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 30px;">Наши постояльцы</h2>
+            <h2 style="text-align: center;">Наши постояльцы</h2>
             <div class="pets-carousel" id="petsCarousel">
+                <!-- Карточки питомцев -->
                 <div class="pet-card">
                     <img src="images/dog1.jpg" alt="Боня и Кокос" loading="lazy">
                     <div class="pet-info">
@@ -310,85 +495,42 @@
                         <p>Бигль</p>
                     </div>
                 </div>
-                <div class="pet-card">
-                    <img src="images/dog7.jpg" alt="Шелли" loading="lazy">
-                    <div class="pet-info">
-                        <h3>Шелли</h3>
-                        <p>Лабрадор</p>
-                    </div>
-                </div>
-                <div class="pet-card">
-                    <img src="images/dog8.jpg" alt="Боня" loading="lazy">
-                    <div class="pet-info">
-                        <h3>Боня</h3>
-                        <p>Стаффордширский терьер</p>
-                    </div>
-                </div>
-                <div class="pet-card">
-                    <img src="images/dog9.jpg" alt="Иоджи" loading="lazy">
-                    <div class="pet-info">
-                        <h3>Иоджи</h3>
-                        <p>Курцхаар</p>
-                    </div>
-                </div>
-                <div class="pet-card">
-                    <img src="images/dog10.jpg" alt="Марта" loading="lazy">
-                    <div class="pet-info">
-                        <h3>Марта</h3>
-                        <p>Ризеншнауцер</p>
-                    </div>
-                </div>
-                <div class="pet-card">
-                    <img src="images/dog11.jpg" alt="Боня" loading="lazy">
-                    <div class="pet-info">
-                        <h3>Боня</h3>
-                        <p>Джек Рассел</p>
-                    </div>
-                </div>
-                <div class="pet-card">
-                    <img src="images/dog12.jpg" alt="Леся" loading="lazy">
-                    <div class="pet-info">
-                        <h3>Леся</h3>
-                        <p>Шпиц</p>
-                    </div>
-                </div>
-                <div class="pet-card">
-                    <img src="images/dog13.jpg" alt="Боня" loading="lazy">
-                    <div class="pet-info">
-                        <h3>Боня</h3>
-                        <p>Джек Рассел</p>
-                    </div>
-                </div>
             </div>
             <div class="carousel-nav" id="carouselDots"></div>
         </div>
     </section>
 
     <!-- Форма заявки -->
-    <section id="form" style="padding: 60px 0; background: #ffefe5;">
-        <div class="container" style="max-width: 600px; margin: 0 auto;">
-            <h2 style="text-align: center;">Оставить заявку</h2>
-            <form id="dogForm" style="display: grid; gap: 15px;">
-                <input type="text" name="name" placeholder="Ваше имя" required style="padding: 12px; border: 1px solid #ddd; border-radius: 5px;">
-                <input type="tel" name="phone" placeholder="Телефон" required style="padding: 12px; border: 1px solid #ddd; border-radius: 5px;">
-                <textarea name="message" placeholder="О вашем питомце (порода, возраст, особенности)" required style="padding: 12px; border: 1px solid #ddd; border-radius: 5px; height: 100px;"></textarea>
-                <button type="submit" class="btn">Отправить заявку</button>
+    <section id="form" class="form-section">
+        <div class="container form-container">
+            <h2>Оставить заявку</h2>
+            <form id="dogForm" class="form-grid">
+                <input type="text" name="name" placeholder="Ваше имя" required>
+                <input type="tel" name="phone" placeholder="Телефон" required>
+                <textarea name="message" placeholder="О вашем питомце (порода, возраст, особенности)" required></textarea>
+                <button type="submit" class="btn">
+                    <i class="fas fa-paper-plane"></i> Отправить заявку
+                </button>
             </form>
         </div>
     </section>
 
     <!-- Футер -->
-    <footer style="background: #333; color: white; padding: 30px 0; text-align: center;">
-        <div class="container">
-            <p>© 2025 Зооняня - передержка собак в <p>Лосино-Петровском, Монино, Свердловском
-    <p><a href="tel:+79096777055" style="color: white;">+7 (909) 677-70-55</a></p>
-</div>
+    <footer>
+        <div class="container footer-container">
+            <p>© 2025 Зооняня - передержка собак в Лосино-Петровском, Монино, Свердловском</p>
+            <a href="tel:+79096777055" class="footer-phone">
+                <i class="fas fa-phone-alt"></i> +7 (909) 677-70-55
+            </a>
+            <button class="btn" onclick="openCallbackModal()" style="margin: 0 auto;">
+                <i class="fas fa-phone-volume"></i> Заказать звонок
+            </button>
+        </div>
     </footer>
 
     <!-- Кнопка обновления PWA -->
     <button id="update-btn">Обновить приложение</button>
 
-    <!-- Скрипты -->
     <script>
         // Инициализация карусели
         const carousel = document.getElementById('petsCarousel');
@@ -433,30 +575,96 @@
             });
         }
 
+        // Модальное окно
+        function openCallbackModal() {
+            document.getElementById('callbackModal').style.display = 'block';
+            // Аналитика
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'open_callback_modal');
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('callbackModal').style.display = 'none';
+        }
+
+        // Аналитика звонков
+        document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+            link.addEventListener('click', function() {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'phone_call', {
+                        'phone_number': this.href.replace('tel:', ''),
+                        'location': this.id === 'phoneHeader' ? 'header' : 'footer'
+                    });
+                }
+            });
+        });
+
+        // Обработка формы заказа звонка
+        document.getElementById('callbackForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = this.querySelector('input[type="text"]').value;
+            const phone = this.querySelector('input[type="tel"]').value;
+            
+            alert(`Спасибо, ${name}! Мы перезвоним вам по номеру ${phone} в течение 15 минут.`);
+            
+            // Аналитика
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'callback_request', {
+                    'name': name,
+                    'phone': phone
+                });
+            }
+            
+            closeModal();
+        });
+
+        // Обработка основной формы
+        document.getElementById('dogForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = encodeURIComponent(this.name.value);
+            const phone = encodeURIComponent(this.phone.value);
+            const message = encodeURIComponent(this.message.value);
+            
+            const subject = encodeURIComponent('Заявка на передержку собаки');
+            const body = encodeURIComponent(`Имя: ${name}\nТелефон: ${phone}\nСообщение: ${message}`);
+            
+            window.location.href = `mailto:errna@rambler.ru?subject=${subject}&body=${body}`;
+            
+            // Аналитика
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'form_submit', {
+                    'form_name': 'main_form'
+                });
+            }
+        });
+
+        // Закрытие модального окна при клике вне его
+        window.addEventListener('click', function(event) {
+            if (event.target == document.getElementById('callbackModal')) {
+                closeModal();
+            }
+        });
+
+        // Инициализация при загрузке
         document.addEventListener('DOMContentLoaded', () => {
             createNavigationDots();
             updateDots();
+            
+            // Ресайз
             window.addEventListener('resize', () => {
                 cardWidth = cards[0]?.offsetWidth + 20 || 300;
                 updateDots();
             });
-        });
-
-        carousel.addEventListener('scroll', updateDots);
-        new MutationObserver(() => {
-            createNavigationDots();
-            updateDots();
-        }).observe(carousel, { childList: true });
-
-        // Обработка формы
-        document.getElementById('dogForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = encodeURIComponent(document.querySelector('input[name="name"]').value);
-            const phone = encodeURIComponent(document.querySelector('input[name="phone"]').value);
-            const message = encodeURIComponent(document.querySelector('textarea[name="message"]').value);
-            const subject = encodeURIComponent('Заявка на передержку собаки');
-            const body = encodeURIComponent(`Имя: ${decodeURIComponent(name)}\nТелефон: ${decodeURIComponent(phone)}\nСообщение: ${decodeURIComponent(message)}`);
-            window.location.href = `mailto:errna@rambler.ru?subject=${subject}&body=${body}`;
+            
+            // Прокрутка карусели
+            carousel.addEventListener('scroll', updateDots);
+            
+            // Мутации карусели
+            new MutationObserver(() => {
+                createNavigationDots();
+                updateDots();
+            }).observe(carousel, { childList: true });
         });
 
         // PWA Logic
@@ -465,7 +673,7 @@
                 navigator.serviceWorker.register('/sw.js')
                     .then(registration => {
                         console.log('ServiceWorker зарегистрирован:', registration.scope);
-                        
+
                         registration.addEventListener('updatefound', () => {
                             const newWorker = registration.installing;
                             newWorker.addEventListener('statechange', () => {
