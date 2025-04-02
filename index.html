@@ -6,7 +6,7 @@
     <meta name="geo.region" content="RU-MOS">
     <meta name="geo.placename" content="Восточное Подмосковье">
     <title>Передержка собак недорого в Лосино-Петровском, Монино, Свердловском 🐕 – 700₽/сутки с фотоотчетом</title>
-    
+
     <!-- Метатеги -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="description" content="Профессиональная передержка собак в Лосино-Петровском, Монино, Свердловском. Домашний уход, ежедневные отчеты, безопасный выгул от 700₽/сутки">
@@ -63,7 +63,7 @@
             background: #e05d00;
             transform: translateY(-2px);
         }
-        
+
         /* Шапка */
         header {
             background: white;
@@ -110,7 +110,7 @@
         .whatsapp-link:hover {
             transform: scale(1.1);
         }
-        
+
         /* Модальное окно */
         .modal {
             display: none;
@@ -151,7 +151,7 @@
         .close-modal:hover {
             color: #ff6b00;
         }
-        
+
         /* Секции */
         .hero {
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('dog-bg.jpg');
@@ -159,7 +159,7 @@
             background-position: center;
             color: white;
             text-align: center;
-            padding: 100px 0;
+            padding: 120px 0 100px; /* Увеличен верхний отступ */
             margin-top: -60px; /* Компенсация фиксированной шапки */
         }
         .hero h1 {
@@ -263,7 +263,7 @@
         .carousel-dot.active {
             background: #ff6b00;
         }
-        
+
         /* Форма */
         .form-section {
             padding: 60px 0;
@@ -293,7 +293,7 @@
             height: 100px;
             resize: vertical;
         }
-        
+
         /* Футер */
         footer {
             background: #333;
@@ -315,7 +315,7 @@
             text-decoration: none;
             font-size: 18px;
         }
-        
+
         /* Адаптивность */
         @media (max-width: 768px) {
             .header-container {
@@ -338,7 +338,7 @@
                 flex: 0 0 85%;
             }
         }
-        
+
         /* Кнопка обновления PWA */
         #update-btn {
             display: none;
@@ -411,9 +411,6 @@
                 <a href="#form" class="btn">
                     <i class="fas fa-paw"></i> Оставить заявку
                 </a>
-                <button class="btn" onclick="openCallbackModal()">
-                    <i class="fas fa-phone-volume"></i> Заказать звонок
-                </button>
             </div>
         </div>
     </section>
@@ -446,7 +443,7 @@
             </div>
         </div>
     </section>
-<!-- Карусель с питомцами -->
+<!-- Карусель с питомцами -->
 <section class="pets-section">
     <div class="container">
         <h2 style="text-align: center; margin-bottom: 30px;">Наши постояльцы</h2>
@@ -562,9 +559,6 @@
             <a href="tel:+79096777055" class="footer-phone">
                 <i class="fas fa-phone-alt"></i> +7 (909) 677-70-55
             </a>
-            <button class="btn" onclick="openCallbackModal()" style="margin: 0 auto;">
-                <i class="fas fa-phone-volume"></i> Заказать звонок
-            </button>
         </div>
     </footer>
 
@@ -645,9 +639,9 @@
             e.preventDefault();
             const name = this.querySelector('input[type="text"]').value;
             const phone = this.querySelector('input[type="tel"]').value;
-            
+
             alert(`Спасибо, ${name}! Мы перезвоним вам по номеру ${phone} в течение 15 минут.`);
-            
+
             // Аналитика
             if (typeof gtag !== 'undefined') {
                 gtag('event', 'callback_request', {
@@ -655,7 +649,7 @@
                     'phone': phone
                 });
             }
-            
+
             closeModal();
         });
 
@@ -665,12 +659,12 @@
             const name = encodeURIComponent(this.name.value);
             const phone = encodeURIComponent(this.phone.value);
             const message = encodeURIComponent(this.message.value);
-            
+
             const subject = encodeURIComponent('Заявка на передержку собаки');
             const body = encodeURIComponent(`Имя: ${name}\nТелефон: ${phone}\nСообщение: ${message}`);
-            
+
             window.location.href = `mailto:errna@rambler.ru?subject=${subject}&body=${body}`;
-            
+
             // Аналитика
             if (typeof gtag !== 'undefined') {
                 gtag('event', 'form_submit', {
@@ -690,16 +684,16 @@
         document.addEventListener('DOMContentLoaded', () => {
             createNavigationDots();
             updateDots();
-            
+
             // Ресайз
             window.addEventListener('resize', () => {
                 cardWidth = cards[0]?.offsetWidth + 20 || 300;
                 updateDots();
             });
-            
+
             // Прокрутка карусели
             carousel.addEventListener('scroll', updateDots);
-            
+
             // Мутации карусели
             new MutationObserver(() => {
                 createNavigationDots();
