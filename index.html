@@ -27,9 +27,8 @@
     <meta name="msapplication-TileColor" content="#ff6b00">
     <meta name="msapplication-config" content="browserconfig.xml">
 
-    <!-- Font Awesome и Bootstrap -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
         /* Основные стили */
@@ -272,86 +271,54 @@
             background: #ff6b00;
         }
 
-        /* Видео-секция с каруселью */
+        /* Видео-секция с RuTube */
         .video-section {
             padding: 60px 0;
             background: #fff;
             text-align: center;
         }
         
-        .video-carousel-container {
-            max-width: 800px;
-            margin: 30px auto;
+        .video-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
         }
         
-        .video-carousel {
+        .video-item {
+            width: 100%;
+            max-width: 400px;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
         }
         
-        .video-carousel .carousel-item {
+        .video-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .video-embed {
             position: relative;
+            width: 100%;
             padding-bottom: 56.25%; /* 16:9 соотношение */
         }
         
-        .video-carousel .carousel-item iframe {
+        .video-embed iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             border: none;
-        }
-        
-        .video-carousel .carousel-control-prev,
-        .video-carousel .carousel-control-next {
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 107, 0, 0.7);
-            border-radius: 50%;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-        
-        .video-carousel .carousel-control-prev {
-            left: 15px;
-        }
-        
-        .video-carousel .carousel-control-next {
-            right: 15px;
-        }
-        
-        .video-carousel .carousel-control-prev:hover,
-        .video-carousel .carousel-control-next:hover {
-            background-color: #ff6b00;
-        }
-        
-        .video-carousel .carousel-indicators {
-            bottom: -30px;
-        }
-        
-        .video-carousel .carousel-indicators button {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: #ccc;
-            border: none;
-            transition: all 0.3s;
-            opacity: 0.7;
-        }
-        
-        .video-carousel .carousel-indicators button.active {
-            background-color: #ff6b00;
-            transform: scale(1.2);
-            opacity: 1;
+            border-radius: 10px 10px 0 0;
         }
         
         .video-info {
             padding: 15px;
-            text-align: center;
+            text-align: left;
             background: white;
-            border-radius: 0 0 10px 10px;
         }
         
         .video-link {
@@ -369,6 +336,10 @@
         .video-link:hover {
             background: #e05d00;
             transform: translateY(-2px);
+        }
+        
+        .video-link i {
+            margin-left: 8px;
         }
 
         /* Форма */
@@ -463,11 +434,12 @@
                 height: 200px;
                 object-fit: cover;
             }
-            .video-carousel-container {
-                margin: 30px -15px;
+            .video-item {
+                max-width: 100%;
             }
         }
 
+        /* Для горизонтальной ориентации на мобильных */
         @media (max-width: 768px) and (orientation: landscape) {
             .pet-card {
                 flex: 0 0 60%;
@@ -678,68 +650,53 @@
         </div>
     </section>
 
-    <!-- Видео-секция с каруселью -->
+    <!-- Видео-секция с RuTube -->
     <section class="video-section">
         <div class="container">
             <h2>Забавные моменты передержки</h2>
             <p>Наши короткие видео показывают, как весело проводят время ваши питомцы</p>
             
-            <div class="video-carousel-container">
-                <div id="videoCarousel" class="carousel slide video-carousel" data-bs-ride="carousel" data-bs-interval="5000">
-                    <div class="carousel-inner">
-                        <!-- Видео 1 с RuTube -->
-                        <div class="carousel-item active">
-                            <div class="ratio ratio-16x9">
-                                <iframe src="https://rutube.ru/play/embed/6e36373c8735c9657906cb8068233269/" 
-                                        allowfullscreen 
-                                        allow="autoplay; fullscreen"
-                                        loading="lazy"></iframe>
-                            </div>
-                        </div>
-                        
-                        <!-- Видео 2 с RuTube -->
-                        <div class="carousel-item">
-                            <div class="ratio ratio-16x9">
-                                <iframe src="https://rutube.ru/play/embed/a655b647e218bb5ec0eccfbe8a5262fa/" 
-                                        allowfullscreen 
-                                        allow="autoplay; fullscreen"
-                                        loading="lazy"></iframe>
-                            </div>
-                        </div>
-                        
-                        <!-- Видео 3 с RuTube -->
-                        <div class="carousel-item">
-                            <div class="ratio ratio-16x9">
-                                <iframe src="https://rutube.ru/play/embed/07c2462779e8d9be2db5380dda859d2f/" 
-                                        allowfullscreen 
-                                        allow="autoplay; fullscreen"
-                                        loading="lazy"></iframe>
-                            </div>
-                        </div>
+            <div class="video-container">
+                <!-- Видео 1 с RuTube -->
+                <div class="video-item">
+                    <div class="video-embed">
+                        <iframe src="https://rutube.ru/play/embed/6e36373c8735c9657906cb8068233269/" 
+                                allowfullscreen 
+                                allow="autoplay; fullscreen">
+                        </iframe>
                     </div>
-                    
-                    <!-- Кнопки управления -->
-                    <button class="carousel-control-prev" type="button" data-bs-target="#videoCarousel" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Предыдущее</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#videoCarousel" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Следующее</span>
-                    </button>
-                    
-                    <!-- Индикаторы -->
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#videoCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#videoCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#videoCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    <div class="video-info">
+                        <h3>Цвергпинчер Тимоша - маленький герой в большом мире</h3>
+                        <p>3:00 мин</p>
                     </div>
                 </div>
                 
-                <!-- Описание видео -->
-                <div class="video-info">
-                    <h3 id="currentVideoTitle">Цвергпинчер Тимоша - маленький герой в большом мире</h3>
-                    <p id="currentVideoDuration">3:00 мин</p>
+                <!-- Видео 2 с RuTube -->
+                <div class="video-item">
+                    <div class="video-embed">
+                        <iframe src="https://rutube.ru/play/embed/a655b647e218bb5ec0eccfbe8a5262fa/" 
+                                allowfullscreen 
+                                allow="autoplay; fullscreen">
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Шпиц Леся - маленький рыжий комочек счастья и радости</h3>
+                        <p>3:30 мин</p>
+                    </div>
+                </div>
+                
+                <!-- Видео 3 с RuTube -->
+                <div class="video-item">
+                    <div class="video-embed">
+                        <iframe src="https://rutube.ru/play/embed/07c2462779e8d9be2db5380dda859d2f/" 
+                                allowfullscreen 
+                                allow="autoplay; fullscreen">
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Два шпица: Моменты дружбы и радости</h3>
+                        <p>4:15 мин</p>
+                    </div>
                 </div>
             </div>
             
@@ -784,9 +741,6 @@
 
     <!-- Кнопка обновления PWA -->
     <button id="update-btn">Обновить приложение</button>
-
-    <!-- Подключение Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
         // Инициализация карусели
@@ -903,8 +857,8 @@
             }
         });
 
-        // Инициализация видео карусели
-        document.addEventListener('DOMContentLoaded', function() {
+        // Инициализация при загрузке
+        document.addEventListener('DOMContentLoaded', () => {
             createNavigationDots();
             updateDots();
 
@@ -922,23 +876,6 @@
                 createNavigationDots();
                 updateDots();
             }).observe(carousel, { childList: true });
-
-            // Обновление информации о видео при переключении слайдов
-            const videoCarousel = document.getElementById('videoCarousel');
-            const videoTitles = [
-                "Цвергпинчер Тимоша - маленький герой в большом мире",
-                "Шпиц Леся - маленький рыжий комочек счастья и радости",
-                "Два шпица: Моменты дружбы и радости"
-            ];
-            const videoDurations = ["3:00 мин", "3:30 мин", "4:15 мин"];
-            
-            if (videoCarousel) {
-                videoCarousel.addEventListener('slid.bs.carousel', function(event) {
-                    const activeIndex = event.to;
-                    document.getElementById('currentVideoTitle').textContent = videoTitles[activeIndex];
-                    document.getElementById('currentVideoDuration').textContent = videoDurations[activeIndex];
-                });
-            }
         });
 
         // PWA Logic
