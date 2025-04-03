@@ -32,12 +32,12 @@
 
     <style>
         /* Основные стили */
-   body {
+        body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             line-height: 1.6;
             color: #333;
-            padding-top: 60px; /* Отступ для фиксированной шапки */
+            padding-top: 60px;
         }
         .container {
             max-width: 1200px;
@@ -65,7 +65,7 @@
         }
 
         /* Шапка */
-  header {
+        header {
             background: white;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: fixed;
@@ -78,9 +78,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 100%; /* Используем 100% высоты шапки */
+            height: 100%;
             padding: 0 15px;
-        } 
+        }
         .header-contacts {
             display: flex;
             align-items: center;
@@ -155,15 +155,14 @@
         }
 
         /* Секции */
-     .hero {
+        .hero {
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('dog-bg.jpg');
             background-size: cover;
             background-position: center;
             color: white;
             text-align: center;
             padding: 100px 0;
-            /* margin-top удалено, так как теперь используется padding-top в body */
-        }   
+        }
         .hero h1 {
             font-size: 2.5rem;
             margin-bottom: 20px;
@@ -202,68 +201,75 @@
             color: #ff6b00;
             margin-bottom: 15px;
         }
+
+        /* Карусель с питомцами - исправленная версия */
         .pets-section {
             padding: 60px 0;
             background: #f5f5f5;
         }
-       
-    /* Карусель с питомцами - исправленная версия */
-    .pets-carousel {
-        display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        scroll-behavior: smooth;
-        -webkit-overflow-scrolling: touch;
-        gap: 20px;
-        padding: 20px 0;
-        margin: 30px -15px;
-    }
-    .pet-card {
-        flex: 0 0 280px;
-        scroll-snap-align: start;
-        background: white;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        transition: transform 0.3s;
-        display: flex;
-        flex-direction: column;
-    }
-    .pet-card img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-        object-position: center;
-    }
-    .pet-info {
-        padding: 15px;
-        flex-grow: 1;
-    }
-
-    /* Адаптивность для мобильных */
-    @media (max-width: 768px) {
+        .pets-carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            gap: 20px;
+            padding: 20px 0;
+            margin: 30px -15px;
+        }
+        .pets-carousel::-webkit-scrollbar {
+            display: none;
+        }
         .pet-card {
-            flex: 0 0 85%;
-            height: auto;
+            flex: 0 0 280px;
+            scroll-snap-align: start;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        .pet-card:hover {
+            transform: translateY(-5px);
         }
         .pet-card img {
-            height: auto;
-            max-height: 200px;
-            aspect-ratio: 1 / 1; /* Сохраняем квадратные пропорции */
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            object-position: center;
         }
-    }
-
-    /* Для горизонтальной ориентации на мобильных */
-    @media (max-width: 768px) and (orientation: landscape) {
-        .pet-card {
-            flex: 0 0 60%;
+        .pet-info {
+            padding: 15px;
+            flex-grow: 1;
         }
-        .pet-card img {
-            height: 30vh; /* Используем viewport height для сохранения пропорций */
-            max-height: none;
-            aspect-ratio: 16 / 9; /* Более широкий формат для горизонтальной ориентации */
+        .pet-info h3 {
+            margin: 0 0 5px 0;
+            font-size: 18px;
         }
-    }
+        .pet-info p {
+            margin: 0;
+            color: #666;
+            font-size: 14px;
+        }
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            background: #ccc;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .carousel-dot.active {
+            background: #ff6b00;
+        }
 
         /* Форма */
         .form-section {
@@ -327,15 +333,13 @@
             margin: 0 auto;
         }
 
-       /* Адаптивность - исправленная версия */
+        /* Адаптивность */
         @media (max-width: 768px) {
             .header-container {
-                flex-direction: row; /* Оставляем в строке даже на мобильных */
+                flex-direction: row;
                 gap: 10px;
                 padding: 0 15px;
             }
-            
-            /* Уменьшаем размеры элементов в шапке для мобильных */
             .logo {
                 font-size: 20px;
             }
@@ -345,8 +349,6 @@
             .whatsapp-link {
                 font-size: 20px;
             }
-            
-            /* Остальные адаптивные стили */
             .hero h1 {
                 font-size: 2rem;
             }
@@ -356,6 +358,24 @@
             }
             .pet-card {
                 flex: 0 0 85%;
+                height: auto;
+            }
+            .pet-card img {
+                height: auto;
+                max-height: 200px;
+                aspect-ratio: 1 / 1;
+            }
+        }
+
+        /* Для горизонтальной ориентации на мобильных */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .pet-card {
+                flex: 0 0 60%;
+            }
+            .pet-card img {
+                height: 30vh;
+                max-height: none;
+                aspect-ratio: 16 / 9;
             }
         }
 
@@ -386,8 +406,7 @@
     </style>
 </head>
 <body>
-   
- <!-- Шапка - исправленная версия -->
+    <!-- Шапка -->
     <header>
         <div class="container header-container">
             <div class="logo">Зооняня</div>
