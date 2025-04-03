@@ -202,7 +202,7 @@
             margin-bottom: 15px;
         }
 
-        /* Карусель с питомцами - исправленная версия */
+        /* Карусель с питомцами */
         .pets-section {
             padding: 60px 0;
             background: #f5f5f5;
@@ -269,6 +269,77 @@
         }
         .carousel-dot.active {
             background: #ff6b00;
+        }
+
+        /* Видео-секция с RuTube */
+        .video-section {
+            padding: 60px 0;
+            background: #fff;
+            text-align: center;
+        }
+        
+        .video-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .video-item {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .video-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .video-embed {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 соотношение */
+        }
+        
+        .video-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .video-info {
+            padding: 15px;
+            text-align: left;
+            background: white;
+        }
+        
+        .video-link {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 25px;
+            background: #ff6b00;
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .video-link:hover {
+            background: #e05d00;
+            transform: translateY(-2px);
+        }
+        
+        .video-link i {
+            margin-left: 8px;
         }
 
         /* Форма */
@@ -362,6 +433,9 @@
             .pet-card img {
                 height: 200px;
                 object-fit: cover;
+            }
+            .video-item {
+                max-width: 100%;
             }
         }
 
@@ -462,6 +536,11 @@
                     <div class="benefit-icon">📸</div>
                     <h3>Ежедневные отчеты</h3>
                     <p>Фото и видео вашего питомца каждый день</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎬</div>
+                    <h3>Веселые моменты</h3>
+                    <p>Забавные видео с вашими питомцами под музыку</p>
                 </div>
                 <div class="benefit-item">
                     <div class="benefit-icon">🐕</div>
@@ -568,6 +647,62 @@
                 </div>
             </div>
             <div class="carousel-nav" id="carouselDots"></div>
+        </div>
+    </section>
+
+    <!-- Видео-секция с RuTube -->
+    <section class="video-section">
+        <div class="container">
+            <h2>Забавные моменты передержки</h2>
+            <p>Наши короткие видео показывают, как весело проводят время ваши питомцы</p>
+            
+            <div class="video-container">
+                <!-- Видео 1 с RuTube -->
+                <div class="video-item">
+                    <div class="video-embed">
+                        <iframe src="https://rutube.ru/play/embed/VIDEO_ID_1" 
+                                allowfullscreen 
+                                allow="autoplay; fullscreen">
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Боня играет с мячиком</h3>
+                        <p>2:15 мин</p>
+                    </div>
+                </div>
+                
+                <!-- Видео 2 с RuTube -->
+                <div class="video-item">
+                    <div class="video-embed">
+                        <iframe src="https://rutube.ru/play/embed/VIDEO_ID_2" 
+                                allowfullscreen 
+                                allow="autoplay; fullscreen">
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Кокос забавно спит</h3>
+                        <p>1:45 мин</p>
+                    </div>
+                </div>
+                
+                <!-- Видео 3 с RuTube -->
+                <div class="video-item">
+                    <div class="video-embed">
+                        <iframe src="https://rutube.ru/play/embed/VIDEO_ID_3" 
+                                allowfullscreen 
+                                allow="autoplay; fullscreen">
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Веселая прогулка</h3>
+                        <p>2:30 мин</p>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="https://rutube.ru/channel/YOUR_CHANNEL_ID/videos/" class="btn video-link" target="_blank">
+                Смотреть все видео <i class="fas fa-arrow-right"></i>
+            </a>
         </div>
     </section>
 
