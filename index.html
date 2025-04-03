@@ -32,13 +32,13 @@
 
     <style>
         /* Основные стили */
-  body {
+   body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             line-height: 1.6;
             color: #333;
-            padding-top: 60px; /* Добавлен отступ для фиксированной шапки */
-        }    
+            padding-top: 60px; /* Отступ для фиксированной шапки */
+        }
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -65,7 +65,7 @@
         }
 
         /* Шапка */
-    header {
+  header {
             background: white;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: fixed;
@@ -78,8 +78,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 60px;
-        }  
+            height: 100%; /* Используем 100% высоты шапки */
+            padding: 0 15px;
+        } 
         .header-contacts {
             display: flex;
             align-items: center;
@@ -327,25 +328,26 @@
             margin: 0 auto;
         }
 
-        /* Адаптивность */
+       /* Адаптивность - исправленная версия */
         @media (max-width: 768px) {
             .header-container {
-                flex-direction: column;
-                gap: 15px;
-                height: auto;
-                padding: 15px 0;
+                flex-direction: row; /* Оставляем в строке даже на мобильных */
+                gap: 10px;
+                padding: 0 15px;
             }
-            header {
-                height: auto;
-                position: relative;
+            
+            /* Уменьшаем размеры элементов в шапке для мобильных */
+            .logo {
+                font-size: 20px;
             }
-            .hero {
-                margin-top: 0;
+            .phone-link {
+                font-size: 16px;
             }
-            .header-contacts {
-                flex-direction: row;
-                gap: 15px;
+            .whatsapp-link {
+                font-size: 20px;
             }
+            
+            /* Остальные адаптивные стили */
             .hero h1 {
                 font-size: 2rem;
             }
@@ -385,8 +387,9 @@
     </style>
 </head>
 <body>
-    <!-- Шапка -->
-  <header>
+   
+ <!-- Шапка - исправленная версия -->
+    <header>
         <div class="container header-container">
             <div class="logo">Зооняня</div>
             <div class="header-contacts">
