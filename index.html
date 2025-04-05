@@ -781,28 +781,26 @@
     </section>
 
     <!-- Форма заявки -->
-    <section id="form" class="form-section">
-        <div class="container form-container">
-            <h2>Оставить заявку</h2>
-        <div class="alert alert-light text-center" style="margin-bottom: 25px; border: 1px solid #ff6b00; border-radius: 10px;">
-            <p>Перед бронированием ознакомьтесь с <a href="/usloviya-perederzhki.html" style="color: #ff6b00; font-weight: bold;">условиями передержки</a>.</p>
+<section id="form" class="form-section">
+    <div class="container form-container">
+        <h2>Оставить заявку</h2>
+        
+        <!-- Блок с ссылкой на условия - обновленная версия -->
+        <div style="background: #fff; padding: 15px; border-radius: 10px; margin-bottom: 25px; text-align: center; border: 1px solid #ff6b00;">
+            <p style="margin: 0;">Перед бронированием ознакомьтесь с <a href="/usloviya-perederzhki.html" style="color: #ff6b00; font-weight: bold; text-decoration: underline;">условиями передержки</a></p>
         </div>
 
-        <form id="dogForm" class="form-grid"
+        <!-- Форма (оставляем вашу оригинальную версию) -->
+        <form id="dogForm" class="form-grid">
+            <input type="text" name="name" placeholder="Ваше имя" required>
+            <input type="tel" name="phone" placeholder="Телефон" required>
+            <textarea name="message" placeholder="О вашем питомце (порода, возраст, особенности)" required></textarea>
+            <button type="submit" class="btn">
+                <i class="fas fa-paper-plane"></i> Отправить заявку
+            </button>
         </form>
     </div>
 </section>
-            
-            <form id="dogForm" class="form-grid">
-                <input type="text" name="name" placeholder="Ваше имя" required>
-                <input type="tel" name="phone" placeholder="Телефон" required>
-                <textarea name="message" placeholder="О вашем питомце (порода, возраст, особенности)" required></textarea>
-                <button type="submit" class="btn">
-                    <i class="fas fa-paper-plane"></i> Отправить заявку
-                </button>
-            </form>
-        </div>
-    </section>
 
     <!-- Футер -->
     <footer>
