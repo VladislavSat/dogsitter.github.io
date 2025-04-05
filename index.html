@@ -593,11 +593,12 @@
             <h1>Передержка собак с выгулом и фотоотчётами — Лосино-Петровский, Монино, Свердловский</h1>
             <p>Домашние условия, ежедневные отчеты, индивидуальный подход</p>
             <p>От <strong>700 ₽/сутки</strong></p>
-            <div class="hero-buttons">
-                <a href="#form" class="btn">
-                    <i class="fas fa-paw"></i> Оставить заявку
-                </a>
-            </div>
+            
+<div class="hero-buttons">
+    <a href="/zayavka.html" class="btn">
+        <i class="fas fa-paw"></i> Оставить заявку
+    </a>
+</div>
         </div>
     </section>
 
@@ -800,27 +801,26 @@
     </section>
 
     <!-- Форма заявки -->
-<section id="form" class="form-section">
-    <div class="container form-container">
-        <h2>Оставить заявку</h2>
+    <!-- CTA секция с кнопкой -->
+<section class="form-section" style="padding: 60px 0; background: #ffefe5;">
+    <div class="container" style="text-align: center;">
+        <h2 style="margin-bottom: 20px;">Готовы оставить питомца?</h2>
         
-        <!-- Блок с ссылкой на условия - обновленная версия -->
-        <div style="background: #fff; padding: 15px; border-radius: 10px; margin-bottom: 25px; text-align: center; border: 1px solid #ff6b00;">
-            <p style="margin: 0;">Перед бронированием ознакомьтесь с <a href="/usloviya-perederzhki.html" style="color: #ff6b00; font-weight: bold; text-decoration: underline;">условиями передержки</a></p>
+        <div style="max-width: 600px; margin: 0 auto;">
+            <a href="/zayavka.html" class="btn" style="font-size: 18px; padding: 15px 30px; margin-bottom: 15px;">
+                <i class="fas fa-paw"></i> Оставить заявку
+            </a>
+            
+            <div style="background: white; padding: 15px; border-radius: 10px; display: inline-block;">
+                <p style="margin: 0; font-size: 14px;">
+                    Нажимая кнопку, вы соглашаетесь с 
+                    <a href="/privacy-policy.html" style="color: #ff6b00; font-weight: bold;">политикой конфиденциальности</a>
+                </p>
+            </div>
         </div>
-
-        <!-- Форма (оставляем вашу оригинальную версию) -->
-        <form id="dogForm" class="form-grid">
-            <input type="text" name="name" placeholder="Ваше имя" required>
-            <input type="tel" name="phone" placeholder="Телефон" required>
-            <textarea name="message" placeholder="О вашем питомце (порода, возраст, особенности)" required></textarea>
-            <button type="submit" class="btn">
-                <i class="fas fa-paper-plane"></i> Отправить заявку
-            </button>
-        </form>
     </div>
 </section>
-
+    
     <!-- Футер -->
     <footer>
         <div class="container footer-container">
