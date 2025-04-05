@@ -50,7 +50,16 @@
 
     <style>
         /* Основные стили */
-        body {
+       .header-slogan {
+    font-size: 14px;
+    color: #ff6b00;
+    font-weight: bold;
+    background: rgba(255,107,0,0.1);
+    padding: 5px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+ body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             line-height: 1.6;
@@ -498,7 +507,13 @@
                 width: 30px;
                 height: 30px;
             }
-        }
+    .header-slogan {
+        font-size: 12px !important;
+        white-space: normal !important;
+        padding: 3px 8px !important;
+        display: none; /* Можно полностью скрыть на мобильных */
+    }
+}
 
         @media (max-width: 768px) and (orientation: landscape) {
             .pet-card {
@@ -537,19 +552,23 @@
 </head>
 <body>
     <!-- Шапка -->
-    <header>
-        <div class="container header-container">
+  <header>
+    <div class="container header-container">
+        <div style="display: flex; align-items: center; gap: 15px;">
             <div class="logo">Зооняня</div>
-            <div class="header-contacts">
-                <a href="tel:+79096777055" class="phone-link" id="phoneHeader">
-                    <i class="fas fa-phone-alt"></i> +7 (909) 677-70-55
-                </a>
-                <a href="https://wa.me/79096777055" class="whatsapp-link" target="_blank" rel="noopener" aria-label="WhatsApp">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-            </div>
+            <div class="header-slogan">✨ Лучший dog-friendly отпуск – пока хозяева в отъезде!</div>
         </div>
-    </header>
+        <div class="header-contacts">
+            <!-- Остальная часть шапки без изменений -->
+            <a href="tel:+79096777055" class="phone-link" id="phoneHeader">
+                <i class="fas fa-phone-alt"></i> +7 (909) 677-70-55
+            </a>
+            <a href="https://wa.me/79096777055" class="whatsapp-link" target="_blank" rel="noopener" aria-label="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+    </div>
+</header>
 
     <!-- Модальное окно -->
     <div id="callbackModal" class="modal">
