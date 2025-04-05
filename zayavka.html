@@ -1,20 +1,153 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <!-- Скопируйте весь <head> из index.html -->
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="geo.region" content="RU-MOS">
+    <meta name="geo.placename" content="Восточное Подмосковье">
     <title>Оставить заявку на передержку | Зооняня</title>
-    <meta name="description" content="Форма заявки на передержку собаки. Лосино-Петровский, Монино, Свердловский.">
-    <!-- Остальные meta-теги из index.html -->
+    <meta name="description" content="Форма заявки на передержку собаки в Лосино-Петровском, Монино, Свердловском. Домашний уход, фотоотчеты.">
+
+    <!-- Favicons и метатеги как в index.html -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ff6b00">
+    <meta name="theme-color" content="#ff6b00">
+
+    <!-- Стили -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <style>
-        /* Все стили из index.html + дополнительные */
+        /* Все стили из index.html */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            color: #333;
+            padding-top: 60px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 25px;
+            background: #ff6b00;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            margin: 10px 0;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #e05d00;
+            transform: translateY(-2px);
+        }
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            height: 60px;
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            padding: 0 15px;
+        }
+        .header-contacts {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo {
+            font-weight: bold;
+            font-size: 24px;
+            color: #ff6b00;
+        }
+        .phone-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: bold;
+            font-size: 18px;
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .phone-link:hover {
+            color: #ff6b00;
+        }
+        .whatsapp-link {
+            color: #25D366;
+            font-size: 24px;
+            transition: transform 0.3s;
+        }
+        .whatsapp-link:hover {
+            transform: scale(1.1);
+        }
+        footer {
+            background: #333;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        .footer-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .footer-phone {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .footer-btn {
+            margin: 0 auto;
+        }
+        .header-slogan {
+            font-size: 14px;
+            color: #ff6b00;
+            font-weight: bold;
+            background: rgba(255,107,0,0.1);
+            padding: 5px 12px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        /* Стили для страницы заявки */
         .form-page {
             padding: 60px 0;
-            background: #ffefe5;
             min-height: calc(100vh - 160px);
+            background: #ffefe5;
         }
         .form-container {
-            max-width: 500px;
+            max-width: 600px;
             margin: 0 auto;
             background: white;
             padding: 30px;
@@ -27,11 +160,62 @@
             margin-top: 20px;
             border-top: 1px solid #eee;
             padding-top: 15px;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .checkbox-group {
+            margin: 20px 0;
+        }
+        .checkbox-group input {
+            margin-right: 10px;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: row;
+                gap: 10px;
+                padding: 0 15px;
+            }
+            .logo {
+                font-size: 20px;
+            }
+            .phone-link {
+                font-size: 16px;
+            }
+            .whatsapp-link {
+                font-size: 20px;
+            }
+            .header-slogan {
+                display: none;
+            }
+            .form-container {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Шапка (как в index.html) -->
+    <!-- Шапка -->
     <header>
         <div class="container header-container">
             <div style="display: flex; align-items: center; gap: 15px;">
@@ -52,22 +236,32 @@
     <!-- Основной контент -->
     <main class="form-page">
         <div class="container form-container">
-            <h1 style="text-align: center; margin-bottom: 30px;">Оставить заявку</h1>
+            <h1 style="text-align: center; margin-bottom: 30px;">Оставить заявку на передержку</h1>
             
-            <form id="dogForm" class="form-grid">
-                <div style="margin-bottom: 15px;">
-                    <label for="name" style="display: block; margin-bottom: 5px;">Ваше имя *</label>
-                    <input type="text" id="name" name="name" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+            <form id="dogForm">
+                <div class="form-group">
+                    <label for="name">Ваше имя *</label>
+                    <input type="text" id="name" name="name" required>
                 </div>
                 
-                <div style="margin-bottom: 15px;">
-                    <label for="phone" style="display: block; margin-bottom: 5px;">Телефон *</label>
-                    <input type="tel" id="phone" name="phone" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                <div class="form-group">
+                    <label for="phone">Телефон *</label>
+                    <input type="tel" id="phone" name="phone" required>
                 </div>
                 
-                <div style="margin-bottom: 20px;">
-                    <label for="message" style="display: block; margin-bottom: 5px;">О вашем питомце *</label>
-                    <textarea id="message" name="message" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; min-height: 100px;"></textarea>
+                <div class="form-group">
+                    <label for="message">О вашем питомце *</label>
+                    <textarea id="message" name="message" required placeholder="Порода, возраст, особенности поведения, особые указания"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="dates">Даты передержки *</label>
+                    <input type="text" id="dates" name="dates" required placeholder="Пример: с 15.07 по 25.07.2025">
+                </div>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" id="agreement" name="agreement" required>
+                    <label for="agreement">Я согласен(а) с <a href="/privacy-policy.html" style="color: #ff6b00;">политикой обработки персональных данных</a></label>
                 </div>
                 
                 <button type="submit" class="btn" style="width: 100%;">
@@ -75,13 +269,13 @@
                 </button>
                 
                 <div class="form-notice">
-                    <p>Нажимая кнопку, вы соглашаетесь с <a href="/privacy-policy.html" style="color: #ff6b00;">политикой обработки персональных данных</a>.</p>
+                    <p>Мы свяжемся с вами в течение 2 часов для уточнения деталей</p>
                 </div>
             </form>
         </div>
     </main>
 
-    <!-- Футер (как в index.html) -->
+    <!-- Футер -->
     <footer>
         <div class="container footer-container">
             <p>© 2025 Зооняня - передержка собак в Лосино-Петровском, Монино, Свердловском</p>
@@ -99,13 +293,32 @@
         </div>
     </footer>
 
-    <!-- Подключение скриптов (как в index.html) -->
+    <!-- Подключение скриптов -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Обработка формы (перенесите ваш код из index.html)
+        // Обработка формы
         document.getElementById('dogForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            // Ваша логика обработки
+            
+            const formData = {
+                name: this.name.value,
+                phone: this.phone.value,
+                message: this.message.value,
+                dates: this.dates.value
+            };
+            
+            // Здесь должна быть ваша логика отправки данных
+            console.log('Данные формы:', formData);
+            
+            // Временное решение - отправка по email
+            const subject = encodeURIComponent('Новая заявка на передержку');
+            const body = encodeURIComponent(
+                `Имя: ${formData.name}\nТелефон: ${formData.phone}\nДаты: ${formData.dates}\nСообщение: ${formData.message}`
+            );
+            window.location.href = `mailto:errna@rambler.ru?subject=${subject}&body=${body}`;
+            
+            // Можно добавить уведомление об успешной отправке
+            alert('Спасибо! Ваша заявка принята. Мы скоро свяжемся с вами.');
         });
     </script>
 </body>
