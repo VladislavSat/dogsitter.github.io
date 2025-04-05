@@ -3,14 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Условия передержки собак | Лосино-Петровский, Монино</title>
+    <meta name="geo.region" content="RU-MOS">
+    <meta name="geo.placename" content="Восточное Подмосковье">
+    <title>Условия передержки собак | Лосино-Петровский, Монино, Свердловский</title>
     <meta name="description" content="Требования для передержки собаки. Договор передержки в формате PDF.">
     
-    <!-- Подключаем те же стили, что и в index.html -->
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ff6b00">
+    
+    <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <style>
-        /* Стили из вашего index.html (обязательно скопируйте сюда раздел <style>) */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
@@ -23,20 +34,111 @@
             margin: 0 auto;
             padding: 0 15px;
         }
-        /* ... остальные стили ... */
-        
-        /* Дополнительные стили для этой страницы */
-        .requirements-list {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 30px 0;
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            height: 60px;
         }
-        .download-btn {
-            display: inline-block;
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            padding: 0 15px;
+        }
+        .logo {
+            font-weight: bold;
+            font-size: 24px;
+            color: #ff6b00;
+        }
+        .phone-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: bold;
+            font-size: 18px;
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .phone-link:hover {
+            color: #ff6b00;
+        }
+        .whatsapp-link {
+            color: #25D366;
+            font-size: 24px;
+            transition: transform 0.3s;
+        }
+        .whatsapp-link:hover {
+            transform: scale(1.1);
+        }
+        footer {
+            background: #333;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        .footer-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .footer-phone {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 25px;
             background: #ff6b00;
             color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            margin: 10px 0;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #e05d00;
+            transform: translateY(-2px);
+        }
+        .requirements-section {
+            padding: 60px 0;
+        }
+        .requirements-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             padding: 12px 25px;
+            background: #ff6b00;
+            color: white;
             border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
@@ -47,10 +149,26 @@
             background: #e05d00;
             transform: translateY(-2px);
         }
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: row;
+                gap: 10px;
+                padding: 0 15px;
+            }
+            .logo {
+                font-size: 20px;
+            }
+            .phone-link {
+                font-size: 16px;
+            }
+            .whatsapp-link {
+                font-size: 20px;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Шапка (как в index.html) -->
+    <!-- Header -->
     <header>
         <div class="container header-container">
             <div class="logo">Зооняня</div>
@@ -65,62 +183,46 @@
         </div>
     </header>
 
-    <!-- Основной контент -->
-    <section class="benefits" style="padding: 60px 0;">
+    <!-- Main Content -->
+    <main class="requirements-section">
         <div class="container">
-            <h1 style="text-align: center;">Условия передержки</h1>
+            <h1 style="text-align: center; margin-bottom: 40px;">Условия передержки</h1>
             
-            <div class="requirements-list">
-                <h2>📋 Что нужно подготовить:</h2>
-                <ul>
-                    <li><strong>Ветеринарный паспорт</strong> с прививками (обязательно от бешенства)</li>
-                    <li><strong>Обработка от паразитов</strong> (блохи, клещи, глисты)</li>
-                    <li><strong>Информация о привычках</strong> (аллергии, режим кормления, особенности поведения)</li>
-                    <li><strong>Контакты владельца</strong> и резервного лица для связи</li>
+            <div class="requirements-card">
+                <h2><i class="fas fa-clipboard-check" style="color: #ff6b00;"></i> Что нужно подготовить</h2>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="margin-bottom: 10px;"><i class="fas fa-paw" style="color: #ff6b00; margin-right: 10px;"></i> <strong>Ветеринарный паспорт</strong> с приви��ками (обязательно от бешенства)</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-bug" style="color: #ff6b00; margin-right: 10px;"></i> <strong>Обработка от паразитов</strong> (блохи, клещи, глисты)</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-info-circle" style="color: #ff6b00; margin-right: 10px;"></i> <strong>Информация о привычках</strong> (аллергии, режим кормления)</li>
+                    <li><i class="fas fa-phone-alt" style="color: #ff6b00; margin-right: 10px;"></i> <strong>Контакты владельца</strong> и резервного лица</li>
                 </ul>
             </div>
-
-            <div class="text-center">
-                <h3>Договор передержки</h3>
+            
+            <div class="requirements-card" style="text-align: center;">
+                <h2><i class="fas fa-file-contract" style="color: #ff6b00;"></i> Договор передержки</h2>
                 <p>Скачайте, заполните и пришлите нам перед передачей собаки</p>
                 <a href="/assets/dogovor-perederzhki.pdf" class="download-btn">
                     <i class="fas fa-file-pdf"></i> Скачать договор (PDF)
                 </a>
             </div>
-
-            <div style="margin-top: 40px;">
-                <h3>❓ Частые вопросы</h3>
-                <div class="accordion" id="faqAccordion">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                                Можно ли без договора?
-                            </button>
-                        </h2>
-                        <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                Нет, договор обязателен для защиты интересов обеих сторон и обеспечения безопасности питомца.
-                            </div>
-                        </div>
+            
+            <div class="requirements-card">
+                <h2><i class="fas fa-question-circle" style="color: #ff6b00;"></i> Частые вопросы</h2>
+                <div style="margin-top: 20px;">
+                    <div style="margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
+                        <h3 style="margin-bottom: 5px;">Можно ли без договора?</h3>
+                        <p style="margin: 0; color: #666;">Нет, договор обязателен для защиты интересов обеих сторон и обеспечения безопасности питомца.</p>
                     </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                                Что если нет всех прививок?
-                            </button>
-                        </h2>
-                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                Мы принимаем только собак с действующей прививкой от бешенства. Остальные прививки рекомендуются.
-                            </div>
-                        </div>
+                    <div style="margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
+                        <h3 style="margin-bottom: 5px;">Что если нет всех прививок?</h3>
+                        <p style="margin: 0; color: #666;">Мы принимаем только собак с действующей прививкой от бешенства. Остальные прививки рекомендуются.</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </main>
 
-    <!-- Футер (как в index.html) -->
+    <!-- Footer -->
     <footer>
         <div class="container footer-container">
             <p>© 2025 Зооняня - передержка собак в Лосино-Петровском, Монино, Свердловском</p>
@@ -138,7 +240,15 @@
         </div>
     </footer>
 
-    <!-- Подключение Bootstrap JS -->
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Simple JavaScript for consistency
+        document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+            link.addEventListener('click', function() {
+                console.log('Phone link clicked:', this.href);
+            });
+        });
+    </script>
 </body>
 </html>
