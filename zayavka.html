@@ -184,6 +184,14 @@
         .checkbox-group input {
             margin-right: 10px;
         }
+        .requirements-notice {
+            background: #fff8f5;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 25px;
+            border: 1px solid #ffe0d0;
+        }
 
         /* Стили для модального окна */
         .modal {
@@ -306,6 +314,11 @@
         <div class="container form-container">
             <h1 style="text-align: center; margin-bottom: 30px;">Оставить заявку на передержку</h1>
             
+            <!-- Блок с уведомлением об условиях (вариант 2а) -->
+            <div class="requirements-notice">
+                <p><i class="fas fa-info-circle" style="color: #ff6b00;"></i> Перед заполнением формы ознакомьтесь с <a href="/usloviya.html" style="color: #ff6b00; font-weight: bold;">условиями передержки</a> и требованиями к питомцам</p>
+            </div>
+            
             <form id="dogForm">
                 <div class="form-group">
                     <label for="name">Ваше имя *</label>
@@ -327,9 +340,13 @@
                     <input type="text" id="dates" name="dates" required placeholder="Пример: с 15.07 по 25.07.2025">
                 </div>
                 
+                <!-- Модифицированный чекбокс (вариант 2б) -->
                 <div class="checkbox-group">
                     <input type="checkbox" id="agreement" name="agreement" required>
-                    <label for="agreement">Я согласен(а) с <a href="/privacy-policy.html" style="color: #ff6b00;">политикой обработки персональных данных</a></label>
+                    <label for="agreement">
+                        Я согласен(а) с <a href="/privacy-policy.html" style="color: #ff6b00;">политикой конфиденциальности</a> 
+                        и <a href="/usloviya.html" style="color: #ff6b00;">условиями передержки</a>
+                    </label>
                 </div>
                 
                 <button type="submit" class="btn" style="width: 100%;">
