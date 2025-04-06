@@ -8,7 +8,7 @@
     <title>Оставить заявку на передержку | Зооняня</title>
     <meta name="description" content="Форма заявки на передержку собаки в Лосино-Петровском, Монино, Свердловском. Домашний уход, фотоотчеты.">
 
-    <!-- Favicons и метатеги как в index.html -->
+    <!-- Favicons и метатеги -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -21,7 +21,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
-        /* Все стили из index.html */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
@@ -127,9 +126,6 @@
             gap: 15px;
             margin-bottom: 15px;
         }
-        .footer-btn {
-            margin: 0 auto;
-        }
         .header-slogan {
             font-size: 14px;
             color: #ff6b00;
@@ -188,27 +184,70 @@
         .checkbox-group input {
             margin-right: 10px;
         }
-    /* ... другие ваши стили ... */
 
-    /* Новые стили для футера */
-    .footer-buttons {
-        display: flex;
-        gap: 15px;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin-top: 20px;
-    }
-    .footer-btn {
-        margin: 0;
-    }
-    @media (max-width: 576px) {
+        /* Стили для модального окна */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(3px);
+        }
+        .modal-content {
+            background: white;
+            margin: 10% auto;
+            padding: 25px;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+            position: relative;
+            animation: modalFadeIn 0.3s;
+        }
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #666;
+            transition: color 0.3s;
+        }
+        .close-modal:hover {
+            color: #ff6b00;
+        }
+        .form-grid {
+            display: grid;
+            gap: 15px;
+        }
+        .form-grid input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        @keyframes modalFadeIn {
+            from {opacity: 0; transform: translateY(-20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        /* Стили для кнопок в футере */
         .footer-buttons {
-            flex-direction: column;
-            align-items: center;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
         }
         .footer-btn {
-            width: 100%;
+            margin: 0;
         }
+
         /* Адаптивность */
         @media (max-width: 768px) {
             .header-container {
@@ -230,6 +269,15 @@
             }
             .form-container {
                 padding: 20px;
+            }
+        }
+        @media (max-width: 576px) {
+            .footer-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .footer-btn {
+                width: 100%;
             }
         }
     </style>
@@ -296,32 +344,50 @@
     </main>
 
     <!-- Футер -->
-<footer>
-    <div class="container footer-container">
-        <p>© 2025 Зооняня - передержка собак в Лосино-Петровском, Монино, Свердловском</p>
-        <div class="footer-social">
-            <a href="tel:+79096777055" class="footer-phone">
-                <i class="fas fa-phone-alt"></i> +7 (909) 677-70-55
-            </a>
-            <a href="https://wa.me/79096777055" class="whatsapp-link" target="_blank" rel="noopener" aria-label="WhatsApp">
-                <i class="fab fa-whatsapp"></i>
-            </a>
+    <footer>
+        <div class="container footer-container">
+            <p>© 2025 Зооняня - передержка собак в Лосино-Петровском, Монино, Свердловском</p>
+            <div class="footer-social">
+                <a href="tel:+79096777055" class="footer-phone">
+                    <i class="fas fa-phone-alt"></i> +7 (909) 677-70-55
+                </a>
+                <a href="https://wa.me/79096777055" class="whatsapp-link" target="_blank" rel="noopener" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+            <div class="footer-buttons">
+                <a href="/" class="btn footer-btn">
+                    <i class="fas fa-home"></i> На главную
+                </a>
+                <button class="btn footer-btn" onclick="openCallbackModal()">
+                    <i class="fas fa-phone-volume"></i> Заказать звонок
+                </button>
+            </div>
         </div>
-        <div class="footer-buttons">
-            <a href="/" class="btn footer-btn">
-                <i class="fas fa-home"></i> На главную
-            </a>
-            <button class="btn footer-btn" onclick="openCallbackModal()">
-                <i class="fas fa-phone-volume"></i> Заказать звонок
-            </button>
+    </footer>
+
+    <!-- Модальное окно -->
+    <div id="callbackModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h3>Заказать звонок</h3>
+            <form id="callbackForm">
+                <div class="form-grid">
+                    <input type="text" placeholder="Ваше имя" required>
+                    <input type="tel" placeholder="Телефон" required>
+                    <button type="submit" class="btn">
+                        <i class="fas fa-phone"></i> Позвоните мне
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
-</footer>
-   
+
     <!-- Подключение скриптов -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
     <script>
-        // Обработка формы
+        // Обработка формы заявки
         document.getElementById('dogForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -332,18 +398,44 @@
                 dates: this.dates.value
             };
             
-            // Здесь должна быть ваша логика отправки данных
             console.log('Данные формы:', formData);
             
-            // Временное решение - отправка по email
             const subject = encodeURIComponent('Новая заявка на передержку');
             const body = encodeURIComponent(
                 `Имя: ${formData.name}\nТелефон: ${formData.phone}\nДаты: ${formData.dates}\nСообщение: ${formData.message}`
             );
             window.location.href = `mailto:errna@rambler.ru?subject=${subject}&body=${body}`;
             
-            // Можно добавить уведомление об успешной отправке
             alert('Спасибо! Ваша заявка принята. Мы скоро свяжемся с вами.');
+        });
+
+        // Модальное окно
+        function openCallbackModal() {
+            document.getElementById('callbackModal').style.display = 'block';
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'open_callback_modal');
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('callbackModal').style.display = 'none';
+        }
+
+        // Закрытие при клике вне окна
+        window.addEventListener('click', function(event) {
+            if (event.target == document.getElementById('callbackModal')) {
+                closeModal();
+            }
+        });
+
+        // Обработка формы обратного звонка
+        document.getElementById('callbackForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = this.querySelector('input[type="text"]').value;
+            const phone = this.querySelector('input[type="tel"]').value;
+
+            alert(`Спасибо, ${name}! Мы перезвоним вам по номеру ${phone} в ближайшее время.`);
+            closeModal();
         });
     </script>
 </body>
