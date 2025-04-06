@@ -7,38 +7,56 @@
   <!-- Главная страница -->
   <url>
     <loc>https://dogsitterlp.online/</loc>
-    <lastmod>2025-04-05</lastmod>  <!-- Обновите дату после изменений -->
+    <lastmod>2025-04-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Страница условий передержки (уже существует) -->
+  <!-- Страница заявки -->
   <url>
-    <loc>https://dogsitterlp.online/usloviya-perederzhki.html</loc>  <!-- Добавьте .html -->
-    <lastmod>2025-04-05</lastmod>  <!-- Текущая дата -->
-    <changefreq>monthly</changefreq>
+    <loc>https://dogsitterlp.online/zayavka.html</loc>
+    <lastmod>2025-04-10</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Будущие страницы (можно оставить как есть) -->
+  <!-- Политика конфиденциальности -->
   <url>
-    <loc>https://dogsitterlp.online/prices.html</loc>  <!-- Рекомендую добавить .html -->
-    <lastmod>2025-04-04</lastmod>
+    <loc>https://dogsitterlp.online/privacy-policy.html</loc>
+    <lastmod>2025-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
+  <!-- Условия передержки -->
   <url>
-    <loc>https://dogsitterlp.online/gallery.html</loc>  <!-- Рекомендую добавить .html -->
+    <loc>https://dogsitterlp.online/usloviya.html</loc>
+    <lastmod>2025-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Будущие страницы (закомментированы) -->
+  <!--
+  <url>
+    <loc>https://dogsitterlp.online/prices.html</loc>
     <lastmod>2025-04-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://dogsitterlp.online/contacts.html</loc>  <!-- Рекомендую добавить .html -->
+    <loc>https://dogsitterlp.online/gallery.html</loc>
     <lastmod>2025-04-04</lastmod>
-    <changefreq>yearly</changefreq>
+    <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+
+  <url>
+    <loc>https://dogsitterlp.online/contacts.html</loc>
+    <lastmod>2025-04-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  -->
 </urlset>
