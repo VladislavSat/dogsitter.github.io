@@ -30,14 +30,14 @@
             padding-top: 60px;
         }
         .header-slogan {
-    font-size: 14px;
-    color: #ff6b00;
-    font-weight: bold;
-    background: rgba(255,107,0,0.1);
-    padding: 5px 12px;
-    border-radius: 20px;
-    white-space: nowrap;
-}
+            font-size: 14px;
+            color: #ff6b00;
+            font-weight: bold;
+            background: rgba(255,107,0,0.1);
+            padding: 5px 12px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -85,33 +85,6 @@
         .whatsapp-link:hover {
             transform: scale(1.1);
         }
-        footer {
-            background: #333;
-            color: white;
-            padding: 40px 0;
-            text-align: center;
-        }
-        .footer-container {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .footer-phone {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            margin-bottom: 15px;
-        }
-        .footer-social {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 15px;
-        }
         .btn {
             display: inline-flex;
             align-items: center;
@@ -158,6 +131,46 @@
             background: #e05d00;
             transform: translateY(-2px);
         }
+
+        /* Стили для футера (обновленные) */
+        footer {
+            background: #333;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        .footer-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .footer-phone {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .footer-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .footer-btn {
+            margin: 0;
+        }
+
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: row;
@@ -173,34 +186,42 @@
             .whatsapp-link {
                 font-size: 20px;
             }
-    .header-slogan {
-        font-size: 12px !important;
-        white-space: normal !important;
-        padding: 3px 8px !important;
-        display: none; /* Можно полностью скрыть на мобильных */
-    }
+            .header-slogan {
+                font-size: 12px;
+                white-space: normal;
+                padding: 3px 8px;
+                display: none;
+            }
+        }
+        @media (max-width: 576px) {
+            .footer-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .footer-btn {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Header -->
     <header>
-    <div class="container header-container">
-        <div style="display: flex; align-items: center; gap: 15px;">
-            <div class="logo">Зооняня</div>
-            <div class="header-slogan">✨ Лучший dog-friendly отпуск – пока хозяева в отъезде!</div>
+        <div class="container header-container">
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <div class="logo">Зооняня</div>
+                <div class="header-slogan">✨ Лучший dog-friendly отпуск – пока хозяева в отъезде!</div>
+            </div>
+            <div class="header-contacts">
+                <a href="tel:+79096777055" class="phone-link" id="phoneHeader">
+                    <i class="fas fa-phone-alt"></i> +7 (909) 677-70-55
+                </a>
+                <a href="https://wa.me/79096777055" class="whatsapp-link" target="_blank" rel="noopener" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
         </div>
-        <div class="header-contacts">
-            <!-- Остальная часть шапки без изменений -->
-            <a href="tel:+79096777055" class="phone-link" id="phoneHeader">
-                <i class="fas fa-phone-alt"></i> +7 (909) 677-70-55
-            </a>
-            <a href="https://wa.me/79096777055" class="whatsapp-link" target="_blank" rel="noopener" aria-label="WhatsApp">
-                <i class="fab fa-whatsapp"></i>
-            </a>
-        </div>
-    </div>
-</header>
+    </header>
   
     <!-- Main Content -->
     <main class="requirements-section">
@@ -241,7 +262,7 @@
         </div>
     </main>
 
-    <!-- Footer -->
+    <!-- Footer (исправленный) -->
     <footer>
         <div class="container footer-container">
             <p>© 2025 Зооняня - передержка собак в Лосино-Петровском, Монино, Свердловском</p>
@@ -253,20 +274,60 @@
                     <i class="fab fa-whatsapp"></i>
                 </a>
             </div>
-            <a href="/" class="btn footer-btn">
-                <i class="fas fa-home"></i> На главную
-            </a>
+            <div class="footer-buttons">
+                <a href="/" class="btn footer-btn">
+                    <i class="fas fa-home"></i> На главную
+                </a>
+                <button class="btn footer-btn" onclick="openCallbackModal()">
+                    <i class="fas fa-phone-volume"></i> Заказать звонок
+                </button>
+            </div>
         </div>
     </footer>
+
+    <!-- Модальное окно (добавлено для работы кнопки) -->
+    <div id="callbackModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h3>Заказать звонок</h3>
+            <form id="callbackForm">
+                <div class="form-grid">
+                    <input type="text" placeholder="Ваше имя" required>
+                    <input type="tel" placeholder="Телефон" required>
+                    <button type="submit" class="btn">
+                        <i class="fas fa-phone"></i> Позвоните мне
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Simple JavaScript for consistency
-        document.querySelectorAll('a[href^="tel:"]').forEach(link => {
-            link.addEventListener('click', function() {
-                console.log('Phone link clicked:', this.href);
-            });
+        // Модальное окно
+        function openCallbackModal() {
+            document.getElementById('callbackModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('callbackModal').style.display = 'none';
+        }
+
+        // Закрытие при клике вне окна
+        window.addEventListener('click', function(event) {
+            if (event.target == document.getElementById('callbackModal')) {
+                closeModal();
+            }
+        });
+
+        // Обработка формы обратного звонка
+        document.getElementById('callbackForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = this.querySelector('input[type="text"]').value;
+            const phone = this.querySelector('input[type="tel"]').value;
+            alert(`Спасибо, ${name}! Мы перезвоним вам по номеру ${phone} в ближайшее время.`);
+            closeModal();
         });
     </script>
 </body>
