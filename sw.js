@@ -10,6 +10,12 @@ const ASSETS = [
   '/styles.css',
   '/script.js'
 ];
+const CACHE_NAME = 'v2';
+     const ASSETS = [
+       '/',
+       '/web-app-manifest-192x192.png',
+       '/index.html'
+     ];
 
 // ===== Установка Service Worker =====
 self.addEventListener('install', event => {
