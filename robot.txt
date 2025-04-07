@@ -1,4 +1,33 @@
+# Optimized robots.txt for dogsitterlp.online
+# Last updated: 2025-04-05
+
+# Основные правила для всех поисковых систем
 User-agent: *
-Allow: /css/
-    Allow: /js/
+Allow: /                  # Разрешить индексацию всего сайта
+Allow: /css/*.css         # Разрешить CSS-файлы
+Allow: /js/*.js           # Разрешить JavaScript
+Allow: /images/           # Разрешить изображения
+Disallow: /admin/         # Закрыть админ-панель
+Disallow: /wp-admin/      # Заблокировать WordPress-админку (если не используется)
+Disallow: /includes/      # Служебные файлы
+Disallow: /search/        # Поисковые страницы
+Disallow: /*?             # Динамические URL с параметрами
+Disallow: /*.pdf$         # Пример: блокировка PDF (если не нужно)
+
+# Специальные правила для Google
+User-agent: Googlebot
+Allow: /*.html$           # Разрешить HTML-страницы
+Allow: /*.css$
+Allow: /*.js$
+Disallow: /private/       # Спец. папка для Google
+
+# Для Яндекс
+User-agent: Yandex
+Allow: /blog/             # Пример: разрешить блог
+Disallow: /temp/          # Временные файлы
+
+# Указание главного зеркала
+Host: https://dogsitterlp.online
+
+# Карта сайта
 Sitemap: https://dogsitterlp.online/sitemap.xml
