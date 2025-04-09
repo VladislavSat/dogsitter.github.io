@@ -199,7 +199,7 @@
             transform: translateY(-2px);
         }
         
-        /* Стили для статей (новые) */
+        /* Стили для статей с аккордеоном */
         .articles-section {
             padding: 60px 0;
         }
@@ -236,25 +236,40 @@
         
         .article-item h3 {
             color: #ff6b00;
-            margin-bottom: 5px;
+            margin-bottom: 0;
             font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
-        .article-item p {
-            margin: 0;
+        .article-item h3::after {
+            content: '+';
+            font-size: 24px;
+            color: #ff6b00;
+        }
+        
+        .article-item h3.active::after {
+            content: '-';
+        }
+        
+        .article-content {
+            display: none;
+            padding-top: 10px;
             color: #666;
         }
         
-        .read-more {
-            display: inline-block;
-            margin-top: 10px;
-            color: #ff6b00;
-            font-weight: bold;
-            text-decoration: none;
+        .article-content.active {
+            display: block;
         }
         
-        .read-more:hover {
-            text-decoration: underline;
+        .article-content ul {
+            padding-left: 20px;
+        }
+        
+        .article-content li {
+            margin-bottom: 8px;
         }
 
         /* Футер */
@@ -383,20 +398,42 @@
                 
                 <div class="article-item">
                     <h3>Чек-лист для хозяина: что собрать собаке на передержку</h3>
-                    <p>Полный список вещей, документов и контактов, которые обеспечат комфорт питомца.</p>
-                    <a href="#" class="read-more">Читать статью →</a>
+                    <div class="article-content">
+                        <p>Полный список вещей, документов и контактов, которые обеспечат комфорт питомца:</p>
+                        <ul>
+                            <li><strong>Ветеринарный паспорт</strong> с прививками (обязательно от бешенства)</li>
+                            <li><strong>Корм</strong> на 2-3 дня больше запланированного срока</li>
+                            <li><strong>Лекарства</strong>, если питомец их принимает</li>
+                            <li><strong>Игрушка/лежанка</strong> для снижения стресса</li>
+                            <li><strong>Контакты:</strong> ваш телефон, резервного лица, ветеринара</li>
+                        </ul>
+                    </div>
                 </div>
                 
                 <div class="article-item">
                     <h3>Как правильно познакомить питомца с няней?</h3>
-                    <p>Правила первой встречи, которые снизят стресс у собаки.</p>
-                    <a href="#" class="read-more">Читать статью →</a>
+                    <div class="article-content">
+                        <p><strong>Идеальный сценарий:</strong></p>
+                        <ol>
+                            <li>Познакомьте собаку с няней заранее (хотя бы за 1 день).</li>
+                            <li>Первая встреча должна быть <strong>на нейтральной территории</strong> (парк, улица).</li>
+                            <li>Дайте няне угощение для собаки — это создаст положительные ассоциации.</li>
+                            <li>При передаче сохраняйте спокойствие — питомец чувствует ваше настроение.</li>
+                        </ol>
+                    </div>
                 </div>
                 
                 <div class="article-item">
                     <h3>Адаптация: сколько дней нужно собаке, чтобы привыкнуть?</h3>
-                    <p>Этапы адаптации и как хозяин может помочь заранее.</p>
-                    <a href="#" class="read-more">Читать статью →</a>
+                    <div class="article-content">
+                        <p><strong>Средние сроки адаптации:</strong></p>
+                        <ul>
+                            <li><strong>1-2 дня:</strong> Исследует территорию, может быть настороженной.</li>
+                            <li><strong>3-5 дней:</strong> Начинает привыкать к режиму и новым людям.</li>
+                            <li><strong>Неделя+:</strong> Полностью осваивается (для тревожных собак).</li>
+                        </ul>
+                        <p><em>Совет:</em> Привезите знакомую игрушку — это ускорит процесс.</p>
+                    </div>
                 </div>
             </div>
             
@@ -406,20 +443,40 @@
                 
                 <div class="article-item">
                     <h3>"Моя собака не сможет без меня!" — правда или миф?</h3>
-                    <p>Как собаки переносят разлуку и что действительно важно для их комфорта.</p>
-                    <a href="#" class="read-more">Читать статью →</a>
+                    <div class="article-content">
+                        <p><strong>Реальность:</strong> Большинство собак адаптируются за 2-3 дня. Главное — правильная подготовка:</p>
+                        <ul>
+                            <li>Заранее приучите питомца к коротким разлукам (1-2 часа).</li>
+                            <li>Выберите передержку с <strong>похожим режимом</strong> (кормление, выгул).</li>
+                            <li>Не устраивайте эмоциональных прощаний — это тревожит собаку.</li>
+                        </ul>
+                    </div>
                 </div>
                 
                 <div class="article-item">
                     <h3>"Договор — это просто формальность" — почему это опасно</h3>
-                    <p>Реальные примеры, как письменные условия спасали от конфликтов.</p>
-                    <a href="#" class="read-more">Читать статью →</a>
+                    <div class="article-content">
+                        <p><strong>Пример из практики:</strong> Хозяин не указал аллергию питомца на курицу. Няня накормила собаку кормом с курицей — пришлось обращаться к ветеринару.</p>
+                        <p><strong>Что фиксирует договор:</strong></p>
+                        <ul>
+                            <li>Особенности здоровья и поведения собаки.</li>
+                            <li>Ответственность сторон.</li>
+                            <li>Действия в экстренных ситуациях.</li>
+                        </ul>
+                    </div>
                 </div>
                 
                 <div class="article-item">
                     <h3>"Домашних собак нельзя выгуливать с другими" — как мы обеспечиваем безопасность</h3>
-                    <p>Правила выгула и разделение собак по темпераменту.</p>
-                    <a href="#" class="read-more">Читать статью →</a>
+                    <div class="article-content">
+                        <p><strong>Наш подход:</strong></p>
+                        <ul>
+                            <li><strong>Раздельные прогулки</strong> для несоциализированных собак.</li>
+                            <li>Знакомство только <strong>на поводках</strong> и под контролем.</li>
+                            <li>Индивидуальные <strong>игровые зоны</strong> во дворе.</li>
+                        </ul>
+                        <p><em>Важно:</em> Мы всегда уточняем у хозяина, как питомец реагирует на других животных.</p>
+                    </div>
                 </div>
             </div>
             
@@ -429,20 +486,36 @@
                 
                 <div class="article-item">
                     <h3>Первый день: что чувствует собака в новом доме?</h3>
-                    <p>Описание ощущений питомца через запахи, звуки и новые впечатления.</p>
-                    <a href="#" class="read-more">Читать статью →</a>
+                    <div class="article-content">
+                        <p><em>"Я вошел в дом и сразу учуял запахи других собак. Было страшновато, но няня дала мне кусочек сыра (я его обожаю!). Потом показала мое место — там лежал мягкий плед, пахнущий домом. Я решил, что можно остаться."</em></p>
+                        <p><strong>Как мы помогаем:</strong></p>
+                        <ul>
+                            <li>Даем время освоиться без давления.</li>
+                            <li>Используем <strong>знакомые запахи</strong> (ваши вещи).</li>
+                            <li>Следуем привычному распорядку дня.</li>
+                        </ul>
+                    </div>
                 </div>
                 
                 <div class="article-item">
                     <h3>Как я подружилась с другими собаками</h3>
-                    <p>История адаптации от имени собаки с юмором и фото.</p>
-                    <a href="#" class="read-more">Читать статью →</a>
+                    <div class="article-content">
+                        <p><em>"Сначала я рычала на черного лабрадора Макса. Но няня выгуливала нас вместе, но на расстоянии. Через 3 дня мы уже нюхали друг друга, а на пятый — играли в мяч! Теперь жду передержку, чтобы встретиться с ним снова."</em></p>
+                        <p><strong>Фото:</strong> <img src="/images/dogs-playing.jpg" alt="Две собаки играют" style="max-width:100%; border-radius: 8px; margin-top:10px;"></p>
+                    </div>
                 </div>
                 
                 <div class="article-item">
                     <h3>Почему мне нравится у няни?</h3>
-                    <p>Плюсы передержки с точки зрения питомца: больше игр, прогулок и внимания.</p>
-                    <a href="#" class="read-more">Читать статью →</a>
+                    <div class="article-content">
+                        <p><em>"Здесь мне разрешают спать на диване (дома нельзя!), гуляют 3 раза в день вместо двух, и всегда есть новые игрушки. А еще няня чешет мне за ушком — именно так, как я люблю!"</em></p>
+                        <p><strong>Бонусы для питомца:</strong></p>
+                        <ul>
+                            <li>Больше внимания и игр.</li>
+                            <li>Новые впечатления и социализация.</li>
+                            <li>Строго по режиму — собаки это ценят.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -486,9 +559,19 @@
         </div>
     </div>
 
-    <!-- Скрипты (как на странице "Условия") -->
+    <!-- Скрипты -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Аккордеон для статей
+        document.querySelectorAll('.article-item h3').forEach(title => {
+            title.addEventListener('click', () => {
+                const content = title.nextElementSibling;
+                title.classList.toggle('active');
+                content.classList.toggle('active');
+            });
+        });
+
+        // Модальное окно (как на странице "Условия")
         function openCallbackModal() {
             document.getElementById('callbackModal').style.display = 'block';
             document.body.style.overflow = 'hidden';
