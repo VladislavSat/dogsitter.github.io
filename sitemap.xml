@@ -36,27 +36,35 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Будущие страницы (закомментированы) -->
-  <!--
+  <!-- Статьи -->
   <url>
-    <loc>https://dogsitterlp.online/prices.html</loc>
-    <lastmod>2025-04-04</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://dogsitterlp.online/stati.html</loc>
+    <lastmod>2025-04-10</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
+  <!-- Несуществующие пока страницы (закомментированы) -->
+  <!--
   <url>
-    <loc>https://dogsitterlp.online/gallery.html</loc>
-    <lastmod>2025-04-04</lastmod>
+    <loc>https://dogsitterlp.online/prices.html</loc>
+    <lastmod>2025-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://dogsitterlp.online/contacts.html</loc>
-    <lastmod>2025-04-04</lastmod>
-    <changefreq>yearly</changefreq>
+    <loc>https://dogsitterlp.online/gallery.html</loc>
+    <lastmod>2025-04-10</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://dogsitterlp.online/contacts.html</loc>
+    <lastmod>2025-04-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   -->
 </urlset>
