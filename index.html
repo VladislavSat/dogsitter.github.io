@@ -839,8 +839,8 @@
     <!-- Видео-секция -->
     <section class="video-section">
         <div class="container">
-            <h2>Забавные моменты передержки</h2>
-            <p>Наши короткие видео показывают, как весело проводят время ваши питомцы</p>
+            <h2>Забавные моменты и дневники передержки</h2>
+            <p>Наши короткие видео показывают, как весело проводят время ваши питомцы и даже сами ведут видеодневник</p>
             
             <div class="video-carousel-container">
                 <div id="videoCarousel" class="carousel slide video-carousel" data-bs-ride="carousel" data-bs-interval="5000">
@@ -868,6 +868,15 @@
                                     allow="autoplay; fullscreen"
                                     loading="lazy"></iframe>
                         </div>
+                        
+                              <!-- Видео 4 с RuTube -->
+                        <div class="carousel-item">
+                            <iframe src="https://rutube.ru/play/embed/7c05c9be1295fe16d64a8a743b03ad47/" 
+                                    allowfullscreen 
+                                    allow="autoplay; fullscreen"
+                                    loading="lazy"></iframe>
+                        </div>                  
+                        
                     </div>
                     
                     <!-- Кнопки управления -->
@@ -1071,8 +1080,9 @@
                 "Цвергпинчер Тимоша - маленький герой в большом мире",
                 "Шпиц Леся - маленький рыжий комочек счастья и радости",
                 "Два шпица: Моменты дружбы и радости"
+                "Французский бунтарь: 5 дней бульдога на передержке"
             ];
-            const videoDurations = ["3:00 мин", "3:30 мин", "4:15 мин"];
+            const videoDurations = ["3:00 мин", "3:30 мин", "4:15 мин", "2:40 мин"];
             
             if (videoCarousel) {
                 videoCarousel.addEventListener('slid.bs.carousel', function(event) {
