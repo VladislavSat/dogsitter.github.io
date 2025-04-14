@@ -889,11 +889,13 @@
                     </button>
                     
                     <!-- Индикаторы -->
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#videoCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Видео 1"></button>
-                        <button type="button" data-bs-target="#videoCarousel" data-bs-slide-to="1" aria-label="Видео 2"></button>
-                        <button type="button" data-bs-target="#videoCarousel" data-bs-slide-to="2" aria-label="Видео 3"></button>
-                    </div>
+                   
+<div class="carousel-indicators">
+    <button type="button" data-bs-target="#videoCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Видео 1"></button>
+    <button type="button" data-bs-target="#videoCarousel" data-bs-slide-to="1" aria-label="Видео 2"></button>
+    <button type="button" data-bs-target="#videoCarousel" data-bs-slide-to="2" aria-label="Видео 3"></button>
+    <button type="button" data-bs-target="#videoCarousel" data-bs-slide-to="3" aria-label="Видео 4"></button>
+</div>
                 </div>
                 
                 <!-- Описание видео -->
@@ -1073,23 +1075,27 @@
                 updateDots();
             }).observe(carousel, { childList: true });
 
-            // Обновление информации о видео
-            const videoCarousel = document.getElementById('videoCarousel');
-            const videoTitles = [
-                "Цвергпинчер Тимоша - маленький герой в большом мире",
-                "Шпиц Леся - маленький рыжий комочек счастья и радости",
-                "Два шпица: Моменты дружбы и радости"
-                "Французский бунтарь: 5 дней бульдога на передержке"
-            ];
-            const videoDurations = ["3:00 мин", "3:30 мин", "4:15 мин", "2:40 мин"];
-            
-            if (videoCarousel) {
-                videoCarousel.addEventListener('slid.bs.carousel', function(event) {
-                    const activeIndex = event.to;
-                    document.getElementById('currentVideoTitle').textContent = videoTitles[activeIndex];
-                    document.getElementById('currentVideoDuration').textContent = videoDurations[activeIndex];
-                });
-            }
+          // Обновление информации о видео
+const videoCarousel = document.getElementById('videoCarousel');
+const videoTitles = [
+    "Цвергпинчер Тимоша - маленький герой в большом мире",
+    "Шпиц Леся - маленький рыжий комочек счастья и радости",
+    "Два шпица: Моменты дружбы и радости",
+    "Французский бунтарь: 5 дней бульдога на передержке"
+];
+const videoDurations = ["3:00 мин", "3:30 мин", "4:15 мин", "2:40 мин"];
+
+if (videoCarousel) {
+    videoCarousel.addEventListener('slid.bs.carousel', function(event) {
+        const activeIndex = event.to;
+        document.getElementById('currentVideoTitle').textContent = videoTitles[activeIndex];
+        document.getElementById('currentVideoDuration').textContent = videoDurations[activeIndex];
+    });
+    
+    // Инициализация при загрузке
+    document.getElementById('currentVideoTitle').textContent = videoTitles[0];
+    document.getElementById('currentVideoDuration').textContent = videoDurations[0];
+}
         });
 
         // PWA Logic
