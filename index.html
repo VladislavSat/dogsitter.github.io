@@ -875,7 +875,14 @@
                                     allowfullscreen 
                                     allow="autoplay; fullscreen"
                                     loading="lazy"></iframe>
-                        </div>                    
+                        </div>    
+                        <!-- Видео 5 с RuTube -->
+                        <div class="carousel-item">
+                            <iframe src="https://rutube.ru/play/embed/8f96ea0a0ff0f25a9f8ed32765a2a4fc/" 
+                                    allowfullscreen 
+                                    allow="autoplay; fullscreen"
+                                    loading="lazy"></iframe>
+                        </div>                
                     </div>
                     
                     <!-- Кнопки управления -->
@@ -895,6 +902,7 @@
     <button type="button" data-bs-target="#videoCarousel" data-bs-slide-to="1" aria-label="Видео 2"></button>
     <button type="button" data-bs-target="#videoCarousel" data-bs-slide-to="2" aria-label="Видео 3"></button>
     <button type="button" data-bs-target="#videoCarousel" data-bs-slide-to="3" aria-label="Видео 4"></button>
+    <button type="button" data-bs-target="#videoCarousel" data-bs-slide-to="4" aria-label="Видео 5"></button>
 </div>
                 </div>
                 
@@ -1081,9 +1089,10 @@ const videoTitles = [
     "Цвергпинчер Тимоша - маленький герой в большом мире",
     "Шпиц Леся - маленький рыжий комочек счастья и радости",
     "Два шпица: Моменты дружбы и радости",
-    "Французский бунтарь: 5 дней бульдога на передержке"
+    "Французский бунтарь: 5 дней бульдога на передержке",
+    "🎉 БОНЕ 8 ЛЕТ! День рождения джек-рассела на передержке 🎂🐶"
 ];
-const videoDurations = ["3:00 мин", "3:30 мин", "4:15 мин", "2:40 мин"];
+const videoDurations = ["3:00 мин", "3:30 мин", "4:15 мин", "2:40 мин", "3:00 мин"];
 
 if (videoCarousel) {
     videoCarousel.addEventListener('slid.bs.carousel', function(event) {
